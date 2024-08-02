@@ -13,6 +13,8 @@ void main() async {
   final dir = await path.getApplicationDocumentsDirectory();
   await Hive.initFlutter(dir.path);
 
+  // await Hive.deleteBoxFromDisk('edited-photos');
+
   await Hive.openBox('edited-photos');
   runApp(const MyApp());
 }

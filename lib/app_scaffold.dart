@@ -19,6 +19,13 @@ class _AppScaffoldState extends State<AppScaffold> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey.shade300,
+      appBar: AppBar(
+        backgroundColor: Colors.deepOrangeAccent,
+        title: Text(
+          _currentIndex == 0 ? 'Photos' : 'Edited photos',
+          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      ),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -28,7 +35,11 @@ class _AppScaffoldState extends State<AppScaffold> {
         currentIndex: _currentIndex,
         onTap: (currentIndex) => setState(() => _currentIndex = currentIndex),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: _uploadImage, child: const Text('Gallery')),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blueAccent,
+        onPressed: _uploadImage,
+        child: const Icon(Icons.image, color: Colors.white),
+      ),
     );
   }
 
